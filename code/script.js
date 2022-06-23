@@ -2,9 +2,8 @@ let stock = {
     apiKey: "8a184a62cd81489dab7c875a7f9518f4",
     fetchStock: function (symbol) {
         fetch(
-            "https://api.twelvedata.com/quote?symbol=" +
-            symbol +
-            "&apikey=" +
+            "https://api.twelvedata.com/quote?symbol=" + 
+            symbol + "&apikey=" +
             this.apiKey
         )
         .then((Response) => {
@@ -15,16 +14,20 @@ let stock = {
             return Response.json();
         })
         .then((data) => this.displayStock(data));
-
     },
     displayStock: function (data) {
-        const {symbol, name, currency, previous_close, change, percent_change} = data;
-        document.querySelector(".symbol").innerHTML = symbol;
-        document.querySelector(".name").innerHTML = name;
-        document.querySelector(".currency").innerHTML = currency;
-        document.querySelector(".close").innerHTML = "$" + previous_close;
-        document.querySelector(".change").innerHTML = change;
-        document.querySelector(".percentChange").innerHTML = percent_change + "%";
+        const {symbol} = data;
+        const {name} = data;
+        const {currency} = data;
+        const {previous_close} = data;
+        const {change} = data;
+        const {percent_change} = data;
+        document.querySelector(".symbol").innerText = symbol;
+        document.querySelector(".name").innerText = name;
+        document.querySelector(".currency").innerText = currency;
+        document.querySelector(".close").innerText = "$" + previous_close;
+        document.querySelector(".change").innerText = change;
+        document.querySelector(".percentChange").innerText = percent_change + "%";
     },
     search: function () {
         this.fetchStock(document.querySelector(".search-bar").value);
@@ -36,9 +39,9 @@ document.querySelector(".search button").addEventListener("click", function () {
 document
     .querySelector(".search-bar")
     .addEventListener("keyup", function (event) {
-        if (event.key == "Enter") {
+        if (event.key == "13") {
             stock.search();
         }
     });
 
-    stock.fetchStock("AAPL")
+stock.fetchStock("AAPL")
