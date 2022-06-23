@@ -12,9 +12,9 @@ let stock = {
                 alert("No exchange rate found.");
                 throw new Error("No exchange rate found.");
             }
-            return Response.json():
+            return Response.json();
         })
-        .then((data) => this.displayStock(data)):
+        .then((data) => this.displayStock(data));
 
     },
     displayStock: function (data) {
@@ -22,8 +22,23 @@ let stock = {
         document.querySelector(".symbol").innerHTML = symbol;
         document.querySelector(".name").innerHTML = name;
         document.querySelector(".currency").innerHTML = currency;
-        document.querySelector(".close").innerHTML = previous_close;
+        document.querySelector(".close").innerHTML = "$" + previous_close;
         document.querySelector(".change").innerHTML = change;
-        document.querySelector(".percentChange")
-    }
-}
+        document.querySelector(".percentChange").innerHTML = percent_change + "%";
+    },
+    search: function () {
+        this.fetchStock(document.querySelector(".search-bar").value);
+    },
+};
+
+document.querySelector(".search button").addEventListener("click", function () {stock.search();});
+
+document
+    .querySelector(".search-bar")
+    .addEventListener("keyup", function (event) {
+        if (event.key == "Enter") {
+            stock.search();
+        }
+    });
+
+    stock.fetchStock("AAPL")
