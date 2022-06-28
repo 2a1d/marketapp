@@ -39,9 +39,21 @@ document.querySelector(".search button").addEventListener("click", function () {
 document
     .querySelector(".search-bar")
     .addEventListener("keyup", function (event) {
-        if (event.key == "13") {
+        if (event.key === "Enter") {
             stock.search();
         }
     });
 
 stock.fetchStock("AAPL")
+
+const btn2 = document.querySelector('btn2');
+
+btn2.addEventListener('click', () => {
+    const form = document.getElementById('form');
+    
+    if (form.style.display === 'none') {
+        form.style.display = 'block';
+    }else {
+        form.style.display = 'none';
+    }
+} )

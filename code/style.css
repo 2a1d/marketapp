@@ -31,8 +31,8 @@ button {
     margin: 0.5em;
     border-radius: 50%;
     border: none;
-    height: 44px;
-    width: 44px;
+    height: 40px;
+    width: 45px;
     outline: none;
     background: #7c7c7c2b;
     color: white;
@@ -54,4 +54,19 @@ input.search-bar {
 
 button:hover {
     background: #7c7c7c8b;
+}
+
+form {
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    padding: 0.4em 1.2em;
+    border-radius: 29px;
+    width: 100%;
+    max-width: 380px;
+    height: 100%;
+    display: none;
 }
