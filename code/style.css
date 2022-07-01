@@ -21,6 +21,10 @@ body {
     margin: 1em;
 }
 
+/* .data2 {
+    color: ;
+} */
+
 .search {
     display: flex;
     align-items: center;
@@ -56,10 +60,9 @@ button:hover {
     background: #7c7c7c8b;
 }
 
-form {
+.notes {
     border: none;
     outline: none;
-    display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 1em;

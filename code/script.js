@@ -6,12 +6,14 @@ let stock = {
             symbol + "&apikey=" +
             this.apiKey
         )
-        .then((Response) => {
-            if(!Response.ok) {
+        //fetch("my_data.json")
+        .then((response) => {
+            if(!response.ok) {
                 alert("No exchange rate found.");
                 throw new Error("No exchange rate found.");
             }
-            return Response.json();
+            
+             return response.json();
         })
         .then((data) => this.displayStock(data));
     },
@@ -46,14 +48,27 @@ document
 
 stock.fetchStock("AAPL")
 
-const btn2 = document.querySelector('btn2');
 
+
+const btn2 = document.querySelector('#btn2');
+// alert(btn2);
 btn2.addEventListener('click', () => {
-    const form = document.getElementById('form');
-    
-    if (form.style.display === 'none') {
-        form.style.display = 'block';
+    const notes = document.querySelector('#notes2');
+    // alert(notes.style.display);
+    if (notes.style.display == 'none') {
+        notes.style.display = 'block';
     }else {
-        form.style.display = 'none';
+        notes.style.display = 'none';
     }
 } )
+
+// Secondary text colour change if else statement '-' = red '!-' = green
+
+// const data2 = document.querySelector('.data2');
+// function textColour() {
+//     if (data2.value = '-') {
+//         data2.style.textColour = 'Red'
+//     }else{
+//         data2.style.textColour = 'Green'
+//     }
+// }
